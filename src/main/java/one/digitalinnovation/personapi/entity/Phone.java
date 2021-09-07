@@ -23,7 +23,6 @@ public class Phone {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private PhoneType type;
-c
     private String number;
 
 }

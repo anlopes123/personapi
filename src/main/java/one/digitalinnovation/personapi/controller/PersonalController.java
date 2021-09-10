@@ -1,6 +1,7 @@
 package one.digitalinnovation.personapi.controller;
 
 import one.digitalinnovation.personapi.dto.MessageResponseDto;
+import one.digitalinnovation.personapi.dto.request.PersonDTO;
 import one.digitalinnovation.personapi.entity.Person;
 import one.digitalinnovation.personapi.entity.Phone;
 import one.digitalinnovation.personapi.enums.PhoneType;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,8 +26,8 @@ public class PersonalController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public MessageResponseDto createPeople(@RequestBody Person person) {
-        return personService.createPeople(person);
+    public MessageResponseDto createPeople(@RequestBody @Valid PersonDTO personDTO) {
+        return personService.createPeople(personDTO);
     }
 
 }

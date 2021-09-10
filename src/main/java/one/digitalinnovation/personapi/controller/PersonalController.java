@@ -29,5 +29,9 @@ public class PersonalController {
     public MessageResponseDto createPeople(@RequestBody @Valid PersonDTO personDTO) {
         return personService.createPeople(personDTO);
     }
+    @GetMapping
+    public List<PersonDTO> listAll(){
+        return personService.listAll();
+    }
 
 }
